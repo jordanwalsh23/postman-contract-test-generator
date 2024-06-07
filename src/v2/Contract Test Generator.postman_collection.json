@@ -82,7 +82,7 @@
 											"\r",
 											"        const schema = jsyaml.load(providedSchema);\r",
 											"        pm.collectionVariables.set('coll-schema', JSON.stringify(schema));\r",
-											"        postman.setNextRequest('Verify Component Adherence');\r",
+											"        postman.setNextRequest('Get API Base Url');\r",
 											"    }\r",
 											"    catch(err){\r",
 											"        console.log(err);\r",
@@ -97,7 +97,8 @@
 											"    postman.setNextRequest(\"Validate API In Workspace\")\r",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -244,13 +245,11 @@
 								"header": [
 									{
 										"key": "X-Api-Key",
-										"value": "{{env-apiKey}}",
-										"type": "text"
+										"value": "{{env-apiKey}}"
 									},
 									{
 										"key": "Accept",
-										"value": "application/vnd.api.v10+json",
-										"type": "text"
+										"value": "application/vnd.api.v10+json"
 									}
 								],
 								"url": {
@@ -326,13 +325,11 @@
 								"header": [
 									{
 										"key": "X-Api-Key",
-										"value": "{{env-apiKey}}",
-										"type": "text"
+										"value": "{{env-apiKey}}"
 									},
 									{
 										"key": "Accept",
-										"value": "application/vnd.api.v10+json",
-										"type": "text"
+										"value": "application/vnd.api.v10+json"
 									}
 								],
 								"url": {
@@ -404,13 +401,11 @@
 								"header": [
 									{
 										"key": "X-Api-Key",
-										"value": "{{env-apiKey}}",
-										"type": "text"
+										"value": "{{env-apiKey}}"
 									},
 									{
 										"key": "Accept",
-										"value": "application/vnd.api.v10+json",
-										"type": "text"
+										"value": "application/vnd.api.v10+json"
 									}
 								],
 								"url": {
@@ -485,13 +480,11 @@
 								"header": [
 									{
 										"key": "X-Api-Key",
-										"value": "{{env-apiKey}}",
-										"type": "text"
+										"value": "{{env-apiKey}}"
 									},
 									{
 										"key": "Accept",
-										"value": "application/vnd.api.v10+json",
-										"type": "text"
+										"value": "application/vnd.api.v10+json"
 									}
 								],
 								"url": {
