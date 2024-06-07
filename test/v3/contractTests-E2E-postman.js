@@ -13,6 +13,9 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           collection: require('../../src/v3/Contract Test Generator.postman_collection.json'),
           environment: require('../../src/v3/OASv3.postman_environment.json')
         })
+        .on('request', (err, args) => {
+          console.log(args.response && args.response.stream ? args.response.stream.toString() : false)
+        })
         .on('start', function (err, args) {
           // on start of run, log to console
           console.log('running a collection...')
