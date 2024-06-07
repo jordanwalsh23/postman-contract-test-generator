@@ -843,7 +843,7 @@
 									"    }\r",
 									"    if(pathMethod.parameters && pathMethod.parameters.length > 0) {\r",
 									"        if(currentPath.parameters) {\r",
-									"            currentPath.parameters = pathMethod.parameters.concat(currentPath.parameters);\r",
+									"            currentPath.parameters = pathMethod.parameters.concat(pathMethod.parameters,currentPath.parameters);\r",
 									"        } else {\r",
 									"            currentPath.parameters = pathMethod.parameters;\r",
 									"        }\r",
