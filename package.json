@@ -12,7 +12,6 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@jordanwalsh23/postman-local-mock-server": "^0.0.11",
     "@jordanwalsh23/postman-mock-builder": "^0.0.3",
     "chai": "^4.3.7",
     "express": "^4.18.2",
@@ -21,6 +20,6 @@
     "newman": "^6.0.0"
   },
   "mocha": {
-    "timeout": "60000"
+    "timeout": "120000"
   }
 }

@@ -1,0 +1,98 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample schema.",
+    "version": "1.0.0",
+    "title": "Sample Schema",
+    "termsOfService": "http://example.com/terms/",
+    "contact": {
+      "email": "jordan@example.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "schemes": [
+    "http"
+  ],
+  "host": "localhost:6000",
+  "paths": {
+    "/api/products": {
+      "get": {
+        "summary": "Returns a list of products from the database",
+        "description": "",
+        "operationId": "getProducts",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of current products",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ViewProduct"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ViewProduct": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "description",
+        "model",
+        "sku",
+        "cost"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "guid",
+          "description": "The ID of the Product",
+          "example": "a1805cde-f34f-4945-9fec-3e096fef4bdd"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the Product",
+          "example": "Bose Noise Cancelling Over-Ear Headphones 700 (Black)",
+          "minLength": 3
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the Product",
+          "example": "- 11 levels of noise cancelling\n- Google Assistant and Amazon Alexa built in\n- 20 hours of battery life\n"
+        },
+        "model": {
+          "type": "string",
+          "description": "The model number of the Product",
+          "example": "794297-0100"
+        },
+        "sku": {
+          "type": "string",
+          "description": "The SKU of the Product",
+          "example": "394807"
+        },
+        "cost": {
+          "description": "The cost of the Product",
+          "type": "number",
+          "format": "float",
+          "example": 445
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "The URL to the image of the Product",
+          "format": "url",
+          "minLength": 3,
+          "example": "https://cdn.shopify.com/s/files/1/0024/9803/5810/products/394807-Product-0-I_d1664990-4dfb-462f-bb93-2fb469ed7d5d_800x800.jpg"
+        }
+      }
+    }
+  }
+}
