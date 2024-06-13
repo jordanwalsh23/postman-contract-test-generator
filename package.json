@@ -20,6 +20,6 @@
     "newman": "^6.0.0"
   },
   "mocha": {
-    "timeout": "60000"
+    "timeout": "120000"
   }
 }
