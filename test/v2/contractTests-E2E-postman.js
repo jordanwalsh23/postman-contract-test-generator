@@ -51,15 +51,19 @@ describe('Postman Contract Test Suite - GET Requests', () => {
 
   describe('TEST002 - E2E test using Postman with API IDs specified', () => {
 
-    it('runs a contract test specifying a valid apiId', done => {
+    it('runs a contract test specifying a valid apiId & definitionId', done => {
       newman
         .run({
           collection: require('../../src/v2/Contract Test Generator.postman_collection.json'),
           environment: require('../../src/v2/OASv2.postman_environment.json'),
           envVar: [
             {
-              key: 'env-apiIds',
+              key: 'env-apiId',
               value: 'ac49b26e-12be-48c4-bf9d-fd7f6ec965b4'
+            },
+            {
+              key: 'env-apiDefinitionId',
+              value: 'aed01e51-1a12-4f6b-bba8-9a8061d65a55'
             }
           ]
         })
@@ -105,7 +109,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           environment: require('../../src/v2/OASv2.postman_environment.json'),
           envVar: [
             {
-              key: 'env-apiIds',
+              key: 'env-apiId',
               value: 'invalid'
             }
           ]

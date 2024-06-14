@@ -58,8 +58,12 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           environment: require('../../src/v3/OASv3.postman_environment.json'),
           envVar: [
             {
-              key: 'env-apiIds',
+              key: 'env-apiId',
               value: '437ec72a-4d70-4a07-bd2f-83608cf95112'
+            },
+            {
+              key: "env-apiDefinitionId",
+              value: "c836684b-227a-4796-a9ef-8ec3e12d498d"
             }
           ]
         })
@@ -105,7 +109,7 @@ describe('Postman Contract Test Suite - GET Requests', () => {
           environment: require('../../src/v3/OASv3.postman_environment.json'),
           envVar: [
             {
-              key: 'env-apiIds',
+              key: 'env-apiId',
               value: 'invalid'
             }
           ]

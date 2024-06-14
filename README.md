@@ -257,17 +257,5 @@ Below is a list of environment variables currently consumed by the generator:
 * `env-schemaPropertyExceptions` - The names of any properties that should not be validated in the component tests - **ARRAY OF STRINGS**
 * `env-jsonToYaml` - NPM Package that converts yaml to json. DO NOT EDIT!
 
-# Contact
-You may contact me by any of the social media channels below:
-
-[![Twitter][1.1]][1] [![GitHub][2.1]][2] [![LinkedIn][3.1]][3] [![Ready, Set, Cloud!][4.1]][4]
-
-[1.1]: http://i.imgur.com/tXSoThF.png
-[2.1]: http://i.imgur.com/0o48UoR.png
-[3.1]: http://i.imgur.com/lGwB1Hk.png
-[4.1]: https://readysetcloud.s3.amazonaws.com/logo.png
-
-[1]: http://www.twitter.com/allenheltondev
-[2]: http://www.github.com/allenheltondev
-[3]: https://www.linkedin.com/in/allen-helton-85aa9650/
-[4]: https://readysetcloud.io
+# Issues
+Please raise any issues in this repository. Be sure to include as much detail as possible.
