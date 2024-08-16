@@ -761,5 +761,104 @@ describe('Postman Contract Test Suite - GET Requests', () => {
     })
   })
 
+  describe('TEST008 - GET with injected schema', () => {
+    let test008MockServer = null
+    const PORT = 5562
+
+    before('setup mock server', done => {  
+
+      console.log('Setting up a new mock server')
+      test008MockServer = PostmanMockBuilder.create({
+        apiVersion: 'TEST008'
+      })
+
+      let test008Response = [
+        {
+          id: '1234',
+          name: 'Name',
+          description: 'Description',
+          model: 'Model',
+          sku: 'SKU',
+          cost: 445,
+          imageUrl: 'image-url'
+        }
+      ]
+
+      let state = test008MockServer.addState(
+        'An valid product exists in the database'
+      )
+
+      state
+        .addRequest({
+          method: 'GET',
+          path: '/api/products'
+        })
+        .addResponse({
+          status: 200,
+          body: test008Response
+        })
+
+      test008MockServer.start(PORT)
+      done()
+    })
+
+    it('runs a contract test', done => {
+      let schema = JSON.parse(fs.readFileSync(GET_SCHEMA, 'utf-8').toString());
+      schema.host = "localhost:" + PORT;
+
+      newman
+        .run({
+          collection: require('../../src/v2/Contract Test Generator.postman_collection.json'),
+          environment: require('../../src/v2/Contract Test Environment.postman_environment.json'),
+          envVar: [
+            {
+              key: 'env-schema',
+              value: JSON.stringify(schema)
+            },
+            {
+              key: 'env-server',
+              value: 'http://localhost:' + PORT
+            }
+          ]
+        })
+        .on('start', function (err, args) {
+          // on start of run, log to console
+          console.log('running a collection...')
+        })
+        .on('done', function (err, summary) {
+          if (err || summary.error) {
+            console.error('collection run encountered an error.')
+            done(err)
+          } else {
+            console.log('collection run completed.')
+            if (
+              summary.run &&
+              summary.run.failures &&
+              summary.run.failures.length > 0
+            ) {
+              summary.run.failures.forEach(failure => {
+                console.log(
+                  'Test: ' +
+                  failure.error.test +
+                  ' - result: ' +
+                  failure.error.message
+                )
+              })
+
+              done('Tests Failed')
+            } else {
+              done()
+            }
+          }
+        })
+    })
+
+    after('finish', done => {
+      console.log('stopping server')
+      test008MockServer.stop()
+      done()
+    })
+  })
+
   
 })
